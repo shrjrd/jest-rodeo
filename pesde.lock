@@ -2,7 +2,7 @@
 # It is not intended for manual editing.
 format = 2
 name = "rvy/jestir"
-version = "0.0.0"
+version = "0.0.1"
 target = "lune"
 
 [graph."0x5eal/unzip@0.2.0 luau".pkg_ref]
@@ -74,6 +74,14 @@ index_url = "https://github.com/pesde-pkg/index"
 frktest = [{ name = "itsfrank/frktest", version = "^0.0.4", index = "https://github.com/pesde-pkg/index", target = "luau" }, "dev"]
 greentea = [{ name = "jiwonz/greentea_luau", version = "^0.2.0", index = "https://github.com/pesde-pkg/index", target = "luau" }, "standard"]
 luau_path = [{ name = "jiwonz/luau_path", version = "^0.2.0", index = "https://github.com/pesde-pkg/index", target = "luau" }, "standard"]
+
+[graph."kimpure/chalk_luau@0.1.8 lune".pkg_ref]
+ref_ty = "pesde"
+index_url = "https://github.com/pesde-pkg/index"
+
+[graph."kimpure/chalk_luau@0.1.8 lune".pkg_ref.dependencies]
+darklua = [{ name = "pesde/darklua", version = "^0.16.0", index = "https://github.com/pesde-pkg/index", target = "lune" }, "dev"]
+multitarget = [{ name = "jiwonz/multitarget", version = "^0.4.0-rc.30", index = "https://github.com/pesde-pkg/index", target = "lune" }, "dev"]
 
 [graph."lukadev_0/option@1.2.1 lune".pkg_ref]
 ref_ty = "pesde"
@@ -169,19 +177,21 @@ pathfs = [{ name = "jiwonz/pathfs", version = "^0.6.0", index = "https://github.
 result = [{ name = "lukadev_0/result", version = "^1.2.1", index = "https://github.com/pesde-pkg/index" }, "peer"]
 unzip = [{ name = "0x5eal/unzip", version = "^0.2.0", index = "https://github.com/pesde-pkg/index", target = "luau" }, "standard"]
 
-[graph."rvy/rir3@0.0.4-rc.15 lune"]
-direct = ["rir3", { name = "rvy/rir3", version = "^0.0.4-rc.15", index = "default", target = "lune" }, "standard"]
+[graph."rvy/rir3@0.1.1 lune"]
+direct = ["rir3", { name = "rvy/rir3", version = "^0.1.1", index = "default", target = "lune" }, "standard"]
 
-[graph."rvy/rir3@0.0.4-rc.15 lune".dependencies]
+[graph."rvy/rir3@0.1.1 lune".dependencies]
 argparse = ["caveful_games/argparse@0.1.2 lune", "standard"]
+chalk = ["kimpure/chalk_luau@0.1.8 lune", "standard"]
 pathfs = ["jiwonz/pathfs@0.6.0 lune", "standard"]
 
-[graph."rvy/rir3@0.0.4-rc.15 lune".pkg_ref]
+[graph."rvy/rir3@0.1.1 lune".pkg_ref]
 ref_ty = "pesde"
 index_url = "https://github.com/pesde-pkg/index"
 
-[graph."rvy/rir3@0.0.4-rc.15 lune".pkg_ref.dependencies]
+[graph."rvy/rir3@0.1.1 lune".pkg_ref.dependencies]
 argparse = [{ name = "caveful_games/argparse", version = "^0.1.2", index = "https://github.com/pesde-pkg/index", target = "lune" }, "standard"]
+chalk = [{ name = "kimpure/chalk_luau", version = "^0.1.8", index = "https://github.com/pesde-pkg/index" }, "standard"]
 pathfs = [{ name = "jiwonz/pathfs", version = "^0.6.0", index = "https://github.com/pesde-pkg/index" }, "standard"]
 rojo = [{ name = "pesde/rojo", version = "^7.5.1", index = "https://github.com/pesde-pkg/index", target = "lune" }, "dev"]
 selene = [{ name = "pesde/selene", version = "^0.29.0", index = "https://github.com/pesde-pkg/index", target = "lune" }, "dev"]

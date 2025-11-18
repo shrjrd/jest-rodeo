@@ -25,12 +25,10 @@ local function runTestsOnce(scriptContent: string, config: OnceConfig): number
 	local placeContent = fs.readFile(placePath)
 	fs.writeFile(tempPlacePath, placeContent)
 
-	local tempScriptPath = "temp_test_runner.luau"
-	fs.writeFile(tempScriptPath, scriptContent)
-
 	local args = {
 		"once",
-		tempScriptPath,
+		"-s",
+		scriptContent,
 		"--place",
 		tempPlacePath,
 	}
@@ -48,9 +46,6 @@ local function runTestsOnce(scriptContent: string, config: OnceConfig): number
 		stdio = "forward",
 	})
 
-	if fs.isFile(tempScriptPath) then
-		fs.removeFile(tempScriptPath)
-	end
 	if fs.isFile(tempPlacePath) then
 		fs.removeFile(tempPlacePath)
 	end
