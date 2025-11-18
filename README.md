@@ -24,7 +24,7 @@ pesde add rvy/jestir
 
 ## Usage
 
-Jestir requires an explicit `--target` flag to specify how tests should be executed.
+Run `jestir` to execute tests in your current Studio session (serve mode). Use the `--target` flag to specify a different execution method.
 
 ### Targets
 
@@ -160,11 +160,17 @@ jestir --target once --project shared
 ### Examples
 
 ```bash
-# Run all tests via rir3 once
-jestir --target once
+# Run tests in serve mode (default - connects to current Studio session)
+jestir
 
-# Run tests in serve mode
-jestir --target serve
+# Run specific project in serve mode
+jestir --project shared
+
+# Filter tests in serve mode
+jestir --test-path-pattern "use_async"
+
+# Run all tests via rir3 once (opens new Studio instance)
+jestir --target once
 
 # Run tests in cloud (using jestir.toml)
 jestir --target cloud
@@ -172,20 +178,14 @@ jestir --target cloud
 # Upload place file and run tests in cloud
 jestir --target cloud --upload
 
-# Run specific project
-jestir --target serve --project shared
-
 # Filter by test name
 jestir --target once --test-name-pattern "async"
 
-# Filter by file path
-jestir --target serve --test-path-pattern "use_async"
-
 # Suppress rir3 errors and warnings
-jestir --target once --no-error --no-warn
+jestir --no-error --no-warn
 
 # Verbose output
-jestir --target once --verbose
+jestir --verbose
 
 # CI mode
 jestir --target cloud --ci

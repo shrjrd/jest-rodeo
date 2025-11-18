@@ -57,7 +57,7 @@ local function parseArgs()
 	parser:flag("--ci", "Run in CI mode")
 	parser:flag("--no-error", "Suppress error and info output from rir3")
 	parser:flag("--no-warn", "Suppress warning output from rir3")
-	parser:option("--target", "Execution target: once, serve, or cloud (REQUIRED)")
+	parser:option("--target", "Execution target: once, serve, or cloud (default: serve)")
 	parser:option("--project", "Project name from jestir.toml to run tests for")
 	parser:option("--test-name-pattern", "Pattern to match test names (regex)")
 	parser:option("--test-path-pattern", "Pattern to match test file paths (regex)")
@@ -183,11 +183,7 @@ end
 local function main(): number
 	local args = parseArgs()
 
-	if not args.target then
-		error("--target is required. Must be one of: once, serve, cloud")
-	end
-
-	local target: RunTarget = args.target
+	local target: RunTarget = args.target or "serve"
 	if target ~= "once" and target ~= "serve" and target ~= "cloud" then
 		error(`Invalid target "{target}". Must be one of: once, serve, cloud`)
 	end
