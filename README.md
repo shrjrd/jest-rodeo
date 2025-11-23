@@ -155,12 +155,12 @@ hooks = "src/client/app/hooks"
 - `[projects]`: Named project paths that can be referenced with `--project` flag
 
 **Environment Variables:**
-- `jest-rodeo_API_KEY`: Roblox Open Cloud API key (alternative to `--api-key` flag)
+- `JEST_RODEO_API_KEY`: Roblox Open Cloud API key (alternative to `--api-key` flag)
 
 You can also create a `.env` file in your project root:
 
 ```env
-jest-rodeo_API_KEY=your-api-key-here
+JEST_RODEO_API_KEY=your-api-key-here
 ```
 
 Then use project names to run specific projects:
