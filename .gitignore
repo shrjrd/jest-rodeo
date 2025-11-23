@@ -15,8 +15,6 @@ luau_packages/
 .DS_Store
 
 .jest-rodeo/
-.rodeo/
-build/
 
 # IDE
 .vscode/
