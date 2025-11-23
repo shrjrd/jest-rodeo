@@ -52,6 +52,7 @@ jobs:
       - name: Build binaries
         if: steps.check_release.outputs.exists == 'false'
         run: |
+          export PATH="$PWD/.pesde/bin:$PATH"
           lune run .lune/build.luau
 
       - name: Package binaries
