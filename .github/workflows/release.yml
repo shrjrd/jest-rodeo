@@ -39,11 +39,11 @@ jobs:
             echo "Release $TAG does not exist, will create."
           fi
 
-      - name: Install Pesde
+      - name: Install mise
         if: steps.check_release.outputs.exists == 'false'
-        uses: lumin-org/setup-pesde@v0.4.1
+        uses: jdx/mise-action@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          experimental: true
 
       - name: Install Pesde Dependencies
         if: steps.check_release.outputs.exists == 'false'
